@@ -255,4 +255,162 @@
   <h2 class="section-title">使っている人の口コミ</h2>
   <div class="t-grid">
     <div class="t-card"><p class="t-text">「Spotifyだとついほかの曲を探してしまうけど、StudyBGMは集中できる。シンプルさが逆にいい。」</p><div class="t-author"><div class="t-avatar">K</div><div><p class="t-name">K.T.</p><p class="t-role">大学受験生</p></div></div></div>
-    <div class="t-card"><p class="t-text">「月200円は安すぎる。広告なしでずっと流せるのが最高。タイマーもちゃんと使え
+    <div class="t-card"><p class="t-text">「月200円は安すぎる。広告なしでずっと流せるのが最高。タイマーもちゃんと使えます。」</p><div class="t-author"><div class="t-avatar">Y</div><div><p class="t-name">Y.M.</p><p class="t-role">大学2年生</p></div></div></div>
+    <div class="t-card"><p class="t-text">「ホワイトノイズとブラウンノイズを使い分けるようになってから、深夜の勉強効率がかなり上がった。」</p><div class="t-author"><div class="t-avatar">R</div><div><p class="t-name">R.S.</p><p class="t-role">理系大学院生</p></div></div></div>
+  </div>
+</section>
+<section class="cta-section">
+  <p class="section-eyebrow" style="text-align:center;">Get Started</p>
+  <h2 class="section-title">今日から、集中を始めよう</h2>
+  <p class="section-sub">登録無料。クレジットカード不要。30秒で使い始められます。</p>
+  <a href="#" class="cta-big" onclick="openModal(event)">無料アカウントを作る</a>
+</section>
+<section id="contact" class="contact-section">
+  <p class="section-eyebrow">Contact</p>
+  <h2 class="section-title">お問い合わせ</h2>
+  <div class="contact-grid">
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="form-row"><label class="form-label">お名前</label><input class="form-input" type="text" placeholder="山田 太郎" required /></div>
+      <div class="form-row"><label class="form-label">メールアドレス</label><input class="form-input" type="email" placeholder="example@mail.com" required /></div>
+      <div class="form-row"><label class="form-label">件名</label><input class="form-input" type="text" placeholder="サービスについての質問" /></div>
+      <div class="form-row"><label class="form-label">メッセージ</label><textarea class="form-textarea" placeholder="ご質問・ご要望をお気軽にどうぞ。" required></textarea></div>
+      <div class="form-success" id="form-success">✓ 送信しました。3営業日以内にご返信します。</div>
+      <button class="form-submit" type="submit">送信する</button>
+    </form>
+    <div class="contact-info">
+      <p>ご質問・機能要望・不具合報告など、何でもお気軽にどうぞ。学生の方からのフィードバックは特に大歓迎です。</p>
+      <div class="contact-detail"><span>✉</span> support@studybgm.jp</div>
+      <div class="contact-detail"><span>⏱</span> 返信まで3営業日以内</div>
+      <div class="contact-detail"><span>🗾</span> 日本語対応</div>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-body">
+      <p class="modal-eyebrow">アカウント登録</p>
+      <h2 class="modal-title">無料で始めよう</h2>
+      <p class="modal-sub">クレジットカード不要。30秒で完了します。</p>
+      <div class="plan-toggle">
+        <button class="plan-toggle-btn selected" id="plan-free" onclick="selectPlan('free')">Free — ¥0</button>
+        <button class="plan-toggle-btn" id="plan-pro" onclick="selectPlan('pro')">Pro — ¥200/月</button>
+      </div>
+      <form class="modal-form" onsubmit="submitRegister(event)">
+        <div class="form-row"><label class="form-label">お名前</label><input class="form-input" type="text" placeholder="山田 太郎" required /></div>
+        <div class="form-row"><label class="form-label">メールアドレス</label><input class="form-input" type="email" placeholder="example@mail.com" required /></div>
+        <div class="form-row"><label class="form-label">パスワード</label><input class="form-input" type="password" placeholder="8文字以上" required minlength="8" /></div>
+        <div class="form-row" id="card-row" style="display:none;"><label class="form-label">クレジットカード番号</label><input class="form-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" /></div>
+        <button class="modal-submit" type="submit" id="register-btn">アカウントを作る</button>
+        <p class="modal-terms">登録することで<a href="#">利用規約</a>・<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+      </form>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div class="success-icon">🎉</div>
+      <h3>登録完了！</h3>
+      <p>ご登録ありがとうございます。<br>確認メールをお送りしました。<br>さっそくStudyBGMを始めましょう。</p>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">Study<span>BGM</span></div>
+  <p class="footer-copy">© 2026 StudyBGM — All rights reserved</p>
+</footer>
+<script>
+  const wf = document.getElementById('waveform');
+  const heights = [30,50,70,40,80,55,35,65,45,75,30,60,50,70,40,80,55,35,65,45];
+  heights.forEach((h, i) => {
+    const b = document.createElement('div');
+    b.className = 'waveform-bar' + (i < 7 ? ' active' : '');
+    b.style.height = h + '%';
+    b.style.animationDelay = (i * 0.07) + 's';
+    wf.appendChild(b);
+  });
+  const tracks = [
+    { name: '雨・路地裏', type: '環境音 · フリー', icon: '🌧️', file: '雨･路地裏.mp3' },
+  ];
+  let cur = 0;
+  let audio = new Audio(tracks[cur].file);
+  audio.loop = true;
+  let playing = false;
+  let timerInterval = null;
+  audio.addEventListener('timeupdate', () => {
+    const m = String(Math.floor(audio.currentTime / 60)).padStart(2, '0');
+    const s = String(Math.floor(audio.currentTime % 60)).padStart(2, '0');
+    document.getElementById('current-time').textContent = m + ':' + s;
+  });
+  function togglePlay() {
+    if (playing) {
+      audio.pause(); playing = false;
+      document.getElementById('play-pause').innerHTML = '&#9654;';
+      document.querySelectorAll('.waveform-bar').forEach(b => b.style.animationPlayState = 'paused');
+    } else {
+      audio.play().catch(() => {}); playing = true;
+      document.getElementById('play-pause').innerHTML = '&#9646;&#9646;';
+      document.querySelectorAll('.waveform-bar').forEach(b => b.style.animationPlayState = 'running');
+    }
+  }
+  function setPill(el) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+    el.classList.add('on');
+    clearInterval(timerInterval);
+    const label = el.textContent;
+    if (label === '∞') return;
+    let remaining = parseInt(label) * 60;
+    timerInterval = setInterval(() => {
+      remaining--;
+      if (remaining <= 0) {
+        clearInterval(timerInterval);
+        audio.pause(); playing = false;
+        document.getElementById('play-pause').innerHTML = '&#9654;';
+        document.querySelectorAll('.waveform-bar').forEach(b => b.style.animationPlayState = 'paused');
+        alert('タイマー終了！お疲れ様でした。');
+      }
+    }, 1000);
+  }
+  function updateTrack() {
+    const t = tracks[cur];
+    audio.src = t.file; audio.load();
+    document.querySelector('.track-art').textContent = t.icon;
+    document.querySelector('.track-name').textContent = t.name;
+    document.querySelector('.track-type').textContent = t.type;
+  }
+  function nextTrack() { cur = (cur + 1) % tracks.length; updateTrack(); }
+  function prevTrack() { cur = (cur - 1 + tracks.length) % tracks.length; updateTrack(); }
+  function openModal(e, plan) {
+    if (e) e.preventDefault();
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    selectPlan(plan === 'pro' ? 'pro' : 'free');
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  function selectPlan(plan) {
+    document.getElementById('plan-free').classList.toggle('selected', plan === 'free');
+    document.getElementById('plan-pro').classList.toggle('selected', plan === 'pro');
+    document.getElementById('card-row').style.display = plan === 'pro' ? 'flex' : 'none';
+    document.getElementById('register-btn').textContent = plan === 'pro' ? 'Proプランで始める' : 'アカウントを作る';
+  }
+  function formatCard(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 16);
+    input.value = v.replace(/(.{4})/g, '$1 ').trim();
+  }
+  function submitRegister(e) {
+    e.preventDefault();
+    document.getElementById('modal-body').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  }
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.querySelector('.form-submit').textContent = '送信済み ✓';
+    e.target.querySelector('.form-submit').disabled = true;
+  }
+</script>
+</body>
+</html>
