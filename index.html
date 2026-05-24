@@ -404,7 +404,7 @@
     e.preventDefault();
     const plan = document.getElementById('plan-pro').classList.contains('selected') ? 'pro' : 'free';
     if (plan === 'pro') {
-      const stripe = Stripe('pk_test_51TaeBL3IQwudHqEmgVJ0n07oAPtQg5xsPXDVaPhIZU6dgK63ZkKC8n7XAmPabzuCvXshdjZyYj1UQ68xMiFx8PE600RSbx5XDO');
+      const stripe = Stripe('pk_test_51TaeBL3IQwudHqEmgVJ0nO7oAPtQg5xsPXDVaPhlZU6dgK63ZkKC8n7XAmPabzuCvXshdjZyYj1UQ68xMiFx8PE600RSbx5XDO');
       await stripe.redirectToCheckout({
         lineItems: [{ price: 'price_1Taely3IQwudHqEmrHFt8pcV', quantity: 1 }],
         mode: 'subscription',
