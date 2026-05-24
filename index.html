@@ -400,22 +400,16 @@
     let v = input.value.replace(/\D/g, '').substring(0, 16);
     input.value = v.replace(/(.{4})/g, '$1 ').trim();
   }
- async function submitRegister(e) {
-    e.preventDefault();
-    const plan = document.getElementById('plan-pro').classList.contains('selected') ? 'pro' : 'free';
-    if (plan === 'pro') {
-      const stripe = Stripe('pk_test_51TaeBL3IQwudHqEmgVJ0nO7oAPtQg5xsPXDVaPhlZU6dgK63ZkKC8n7XAmPabzuCvXshdjZyYj1UQ68xMiFx8PE600RSbx5XDO');
-      await stripe.redirectToCheckout({
-        lineItems: [{ price: 'price_1Taely3IQwudHqEmrHFt8pcV', quantity: 1 }],
-        mode: 'subscription',
-        successUrl: 'https://studybgm.vercel.app/?success=true',
-        cancelUrl: 'https://studybgm.vercel.app/?canceled=true',
-      });
-    } else {
-      document.getElementById('modal-body').style.display = 'none';
-      document.getElementById('modal-success').style.display = 'block';
-    }
+async function submitRegister(e) {
+  e.preventDefault();
+  const plan = document.getElementById('plan-pro').classList.contains('selected') ? 'pro' : 'free';
+  if (plan === 'pro') {
+    window.location.href = 'https://buy.stripe.com/test_dRmeV63z7eDp6ZQdA8fjG00';
+  } else {
+    document.getElementById('modal-body').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
   }
+}
   function submitForm(e) {
     e.preventDefault();
     document.getElementById('form-success').style.display = 'block';
